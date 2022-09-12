@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Preparing environment'){
             steps {
-                echo "Tagname: ${tagname}"
+                echo "Preparing environment"
             }
         }
         stage('Build') {
