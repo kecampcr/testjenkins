@@ -44,4 +44,31 @@ pipeline {
             }
         }
     }
+    post {
+    always {
+      script {
+        echo 'post.always'
+      }
+    }
+    success {
+      script {
+        echo 'post.success'
+      }
+    }
+    changed {
+      script {
+        echo 'post.changed'
+      }
+    }
+    aborted {
+      script {
+        echo 'post.aborted'
+      }
+    }
+    failure {
+      script {
+        echo 'post.failure'
+      }
+    }
+  }
 }
