@@ -1,11 +1,16 @@
 pipeline {
     agent any
     environment{
-        _tagname="""${sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()}"""
-        echo "tagname=${TAG_NAME}"
+        tagname="""${sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()}"""
+        
     }
 
     stages {
+        stage('Preparing environment'){
+            steps {
+                echo "Tagname: ${tagname}"
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
